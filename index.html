@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>Maia Herrington</title>
+  <link rel="stylesheet" href="./style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Maia Herrington">
+  <meta name="description" content="An Engineering Portfolio.">
+  <meta name="keywords" content="engineering, computer science, programming, mechanical engineering, design">
+  <link rel="icon" href="./images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700|Work+Sans:600|Lato:300i|Lato:300" rel="stylesheet">
+</head>
+
+<body onLoad="window.scroll(0, 0)">
+<div class="bkgOverlay">
+    
+  <div class="headerFadein" style="animation: headerFadein 4s linear;">
+    <div class="headerContainer">
+        <div class="logo"></div>
+        <ul class="headerNav">
+          <li><a onClick="scrollProjects()">Portfolio</a></li>
+          <li><a onClick="scrollSkills()">Skills</a></li>
+          <li><a onClick="scrollProfile()">Profile</a></li>
+          <li><a onClick="scrollAbout()">About</a></li>
+        </ul>
+    </div>
+    </div>
+
+    <div class="splashHero">
+      <div class="fadeIn">
+        <h1>
+          Hello,
+          </br><span style="color: rgba(255, 255, 255, 1);">I'm Maia Herrington,</span>
+          </br>a computer engineering 
+          </br>student working 
+          </br>in the <span style="color: rgba(255, 255, 255, 1);">space industry</span>
+          <div class="terminalBlink"></div>
+        </h1>
+        <h3>Welcome to my website, I'm excited to show you around. Start by scrolling down!</h3>
+      </div>
+    </div>
+
+
+    <div class="skills" id="skills">
+      <div class="sectionTitle" style="padding-bottom: 10vh;">
+        <h2>Skills</h2>
+      </div>
+      <div class="skillCol">
+        <img src="./images/motherboard.svg" style="padding-top:1vh; padding-bottom:0vh;">
+        PCB and circuit design
+      </div>
+      <div class="skillCol">
+        <img src="./images/multimeter.svg">
+        Electrical instruments
+      </div>
+      <div class="skillCol">
+        <img src="./images/terminal.png">
+        Programming
+      </div>
+      <div class="skillCol">
+        <img src="./images/ic.svg" style="height: calc((100vw - 33.33vw) / 5 - 2vw); padding-top:1vh">
+        Embedded system development
+      </div>
+      <div class="skillCol">
+        <img src="./images/teamwork.png">
+        Teamwork
+      </div>
+    </div>
+
+
+    <div class="diagonal-box-left" id="projBox">
+      <div class="projects" id="projDiv">
+        <div class="projectSectionTitle">
+          <h2>Portfolio</h2>
+          <h3>Selected projects and work</h3>
+        </div>
+        <div class="projCol">
+          <div class="projItem">
+            <h3>MARIO Cubesat</h3>
+            Michigan eXploration Laboratory
+          </div>
+          <div class="projItem">
+            <h3>NASA Celestial Mapping System</h3>
+            <p>NASA Ames Research Center</p>
+          </div>
+        </div>
+        <div class="projCol">
+          <div class="projItem">
+            <h3>Automatic Cruise Controller</h3>
+            EECS 461 Final Project
+          </div>
+          <div class="projItem">
+            <h3>Assembler, Linker, Pipeline Simulator, and Cache Simulator</h3>
+            EECS 370 Course Projects
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="worked" id="worked">
+      <div class="sectionTitle" style="padding-bottom: 10vh;">
+        <h2>Work History</h2>
+        <h3>Places I've worked</h3>
+      </div>
+      <img src="./images/NG.png" style="height: 150px;">
+      <img src="./images/MXL.png" style="height: 175px;">
+      <img src="./images/logo.png" style="height: 150px;">
+    </div>
+
+    <div class="diagonal-box-right" id="profile">
+      <div class="profile" style="height: 63vh;">
+        <div class="sectionTitle" style="padding-bottom: 10vh;">
+          <h2>Profile</h2>
+          <h3>Achievements and press features</h3>
+        </div>
+        <div class="projCol">
+          <div class="projItem" >
+            <h3>American Society for </br>Engineering Education</h3>
+            Published & Presented in 2021 on MBSE curricula and teachings
+          </div>
+          <div class="projItem">
+            <h3>Siemens Engineers of the Future</h3>
+            Featured for International Women's Day
+          </div>
+        </div>
+        <div class="projCol">
+          <div class="projItem">
+            <h3>University of Michigan </br>Charles F. Barth Prize</h3>
+            College of Engineering Scholarship
+          </div>
+          <div class="projItem">
+            <h3>Amateur Radio License</h3>
+            Technician Class, 2020-2030
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="about" id="aboutDiv">
+
+  <div class="abtCol1">
+    <img src="/images/me.png" style="max-height: 200px; max-width: 200px; display: inline;">
+    <h3 style="font-size: 26px; margin-bottom: 10px; margin-top: 10px; font-family: 'Lato', sans-serif; color: white; text-align: center;">
+      Maia Herrington
+    </h3>
+    <div style="font-style: italic; font-size: 21px; text-align: center; opacity: 0.6;">
+      University of Michigan
+    </div>
+    <div style="margin-bottom: 10px; opacity: 0.6; transition: 0.3s;">
+      </br>B.S.E. Computer Engineering, May 2023
+    </div>
+  </div>
+
+  <div class="abtCol2">
+    <div style="opacity: 0.75;">
+        Hi, I'm Maia! I'm currently an undergraduate at the University of Michigan, and am an incoming intern at Relativity Space for HITL Avionics Testing!
+        The type of work I enjoy most is  <span style="color: #8cadff; font-style: italic; font-weight: bold;">team-oriented</span>,  <span style="color: #8cadff; font-style: italic; font-weight: bold;">technically challenging</span>,  <span style="color: #8cadff; font-style: italic; font-weight: bold;">hands-on</span>, and <span style="color: #8cadff; font-style: italic; font-weight: bold;">varied</span>—meaning I'd be working with others and tackling new challenges frequently.
+        </br></br>My current <span style="opacity: 1;">areas of interest</span> are:
+        <ul style="columns: 2; -webkit-columns: 2; -moz-columns: 2;">
+          <li>Embedded Systems</li>
+          <li>Robotics</li>
+          <li>Computer security</li>
+          <li>Space systems</li>
+      </ul>
+      <span style="opacity: 1;">So, why space?</span> The space industry lies at the confluence of my two driving goals: solving complex technical problems and raising the overall quality of life for humanity. Space abounds with resources that can better life on Earth, both as a domain we can leverage and for the physical materials and land we stand to gain.  (Also, space is <i>stunning</i>. It's impossible not to be utterly entranced.)
+    </br></br>When I’m not building something new, you can find me cooking, gardening, boxing, or spending time with friends.
+    </div>
+    <div class="reqResume" style="margin-top: 30px; margin-right: auto; margin-left: auto; text-align: center; display: flex; align-items: center; justify-content: center;">
+      <a href="mailto:maiahe@umich.edu?subject=Requesting%20Resume" style="text-decoration: none; color: white; font-size: 22px;">Request resume →</a>
+    </div>
+    <svg class="reqResumeUnderline" height="5" width="168" style="display: block; margin-left: auto; margin-right: auto; transform: translate();">
+      <line x1="0" y1="0" x2="167" y2="0" style="stroke:rgb(255,255,255); stroke-width:2;"/>
+    </svg>
+</div>
+
+
+
+
+
+
+
+</div>
+
+  <div style="height: 10vh;"></div>
+  
+  <div class="footerContainer">
+    <div class="socialIcons">
+      <a href="https://www.linkedin.com/in/maia-herrington/" target="_blank"><img src="./images/linkedin.svg" class="socialIcon" style="margin-left: 75px;"></a>';?>
+      <a href="https://github.com/mintea2002" target="_blank"><img src="./images/github.svg" class="socialIcon"></a>'; ?>
+      <a onClick="emailCopy()"><img src="./images/mail.svg" class="socialIcon"></a>';?>
+    </div>
+  
+    <div class="copyright">
+      <p>© <a href="index.php">Maia Herrington</a>, 2022</p>
+    </div>
+    <svg class="copyrightUnderline" height="5" width="188" style="position: fixed; bottom: 9px; left: 0; right: 0; margin-left: auto; margin-right: auto; z-index: 13;">
+      <line x1="0" y1="0" x2="188" y2="0" style="stroke:rgb(255,255,255); stroke-width:2;"/>
+    </svg>
+  
+    <div class="trigger"><a href="javascript:;" style="padding-right: 22px;">Attributions</a></div>
+    <svg class="triggerUnderline">
+      <line x1="0" y1="0" x2="97" y2="0" style="stroke:rgb(255,255,255); stroke-width:2;"/>
+    </svg>
+  </div>
+  
+  
+  <div class="astroimg"><a onClick="astroClick()"><img src="./images/astronaut.png" style="height: 93px;"></a></div>
+  
+  
+  <div class="modal">
+      <div class="modal-content">
+        <span class="close-button">×</span>
+        <h2>Attributions</h2>
+        <ul>
+          <li><a href="https://feathericons.com" target="_blank">FeatherIcons</a> by Cole Bemis</li>
+          <li>Background from <a href="https://opengameart.org/sites/default/files/seamless%20space_0.PNG" target="_blank">OpenGameArt.org</a></li>
+          <li>Astonaut from <a href="https://www.cleanpng.com/png-clip-art-image-portable-network-graphics-drawing-p-7113146/download-png.html" target="_blank">CleanPNG.com</a></li>
+          <li><a href="https://iconscout.com/icon/multimeter-1877622">Multimeter Icon</a></li>
+          <li><a href="https://www.onlinewebfonts.com/icon/485309">Circuit Icon</a></li>
+          <li>My friends and family for their support and inspiration.</li>
+        </ul>
+      </div>
+  </div>
+
+  </div>
+
+
+
+
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var scrolled = window.pageYOffset;
+
+
+    });
+  </script>
+
+
+  <script>
+    var currentProj = 0; // 0 indexing
+    const projLinks = [
+      '',
+      '',
+      '',
+      '',
+      '',
+      ''
+    ]
+    const projImgs = [
+      './images/MXL.png',
+      './images/CMS.png',
+      './images/ESPASTAR.jpg',
+      './images/MBSE-495.png',
+      './images/temp.png',
+      './images/blimp.png'
+    ];
+    const projTitles = [
+      '<a href="https://exploration.engin.umich.edu/blog/?page_id=4" target="_blank">MARIO CubeSat Mission</a> <span class="projSubTitle">| Michigan eXploration Laboratory</span>',
+      '<a href="https://celestial.arc.nasa.gov/" target="_blank">Celestial Mapping System</a> <span class="projSubTitle">| NASA Ames Research Center (PX)</span>',
+      'ESPAStar Systems Engineering <span class="projSubTitle">| Northrop Grumman</span>',
+      'Systems Engineering Course <span class="projSubTitle">| Dept. of Aerospace Engineering, Univ. of Michigan</span>',
+      'NOAA Satellite Downlinking',
+      'RC Blimp | <span class="projSubTitle">ENGR 100-700, Univ. of Michigan</span>'
+    ];
+    const projDescs = [
+      'I work as a research assisstant at Michigan eXploration Laboratory, where I support our current CubeSat mission, MARIO.',
+      'During Fall 2021, I am taking a semester off of school to intern at NASA Ames Research Center\'s Project Management Division (PX) to support the development of a celestial mapping system used for data visuzalization, data analysis, and mission planning.',
+      'During my time at Northrop Grumman, I worked as a systems engineering intern supporting the ESPAStar program.',
+      '',
+      '',
+      ''
+    ];
+    var numProj = projTitles.length;
+    document.getElementById("projImg").src = projImgs[currentProj];
+    document.getElementById("projTitle").innerHTML = projTitles[currentProj];
+    document.getElementById("projDesc").innerHTML = projDescs[currentProj];
+
+    function projIter(decrement) // Boolean decrement tells the function whether to decrement or increment
+    {
+      document.getElementById('projContent').className += "fadeOut";
+      document.getElementById('projImg').className += "fadeOut";
+
+      if (decrement && currentProj == 0) {
+        currentProj = numProj - 1;
+      }
+      else if (!decrement && (currentProj == numProj - 1)) {
+        currentProj = 0;
+      }
+      else {
+        currentProj = currentProj - decrement + !decrement;
+      }
+
+      setTimeout(function() {
+        document.getElementById("projImg").src = projImgs[currentProj];
+        document.getElementById("projTitle").innerHTML = projTitles[currentProj];
+        document.getElementById("projDesc").innerHTML = projDescs[currentProj];
+        setTimeout(function() {
+           document.getElementById('projContent').className = "";
+           document.getElementById('projImg').className = "";
+        }, 100);
+      },800);
+    };
+
+
+    
+    function scrollAbout() {
+      var about = document.getElementById("aboutDiv");
+      about.scrollIntoView({behavior: "smooth"});
+    }
+
+    function scrollProjects() {
+      var about = document.getElementById("projBox");
+      about.scrollIntoView({behavior: "smooth"});
+    }
+
+    function scrollSkills() {
+      var about = document.getElementById("skills");
+      about.scrollIntoView({behavior: "smooth"});
+    }
+
+    function scrollProfile() {
+      var about = document.getElementById("profile");
+      about.scrollIntoView({behavior: "smooth"});
+    }
+
+
+
+    var modal = document.querySelector(".modal");
+    var trigger = document.querySelector(".trigger");
+    var closeButton = document.querySelector(".close-button");
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+
+    function astroClick()
+    {
+      
+    }
+
+    function emailCopy()
+    {
+      navigator.clipboard.writeText("maiahe@umich.edu");
+    }
+
+    trigger.addEventListener("click", toggleModal);
+    closeButton.addEventListener("click", toggleModal);
+    window.addEventListener("click", windowOnClick);
+  </script>
+</div>
+</body>
+</html>
