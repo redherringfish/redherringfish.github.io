@@ -12,9 +12,9 @@
   <link rel="icon" href="./images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700|Work+Sans:600|Lato:300i|Lato:300|Hind+Guntur:400|Crimson+Text:700i" rel="stylesheet">
   <script>  
-    function scrollAbout() {
-      var about = document.getElementById("about");
-      about.scrollIntoView({behavior: "smooth"});
+    function scrollTop() {
+      var skills = document.getElementsByClassName("bkgOverlay");
+      skills.scrollIntoView({behavior: "smooth"});
     }
   
     function scrollPortfolio() {
@@ -31,10 +31,85 @@
     {
       navigator.clipboard.writeText("maiahe@umich.edu");
     }
-  
-    trigger.addEventListener("click", toggleModal);
-    closeButton.addEventListener("click", toggleModal);
-    window.addEventListener("click", windowOnClick);
+
+    function modalFadeIn(eltID)
+      {
+        document.getElementById(eltID).style.display='block';
+        document.getElementById(eltID).style.animation='anim 0.25s forwards';
+      }
+
+      function modalFadeOut(eltID)
+      {
+        document.getElementById(eltID).style.animation='unanim 0.25s forwards';
+        setTimeout(function(){
+          document.getElementById(eltID).style.display='none';
+        }, 250);
+      }
+
+
+
+    const speed = 60; // typing period in ms
+    const peakDelay = 1500; // delay after typing in ms
+    const peakCounts = parseInt(peakDelay/speed); // unitless number of counts
+    const baseDelay = 200; // delay before typing in ms
+    const baseCounts = parseInt(baseDelay/speed); // unitless # of counts
+    const splashes = [
+      " build electronics",
+      " send $#!% to space",
+      " write code",
+      " design circuits",
+      " learn new things"
+    ];
+
+    var spIdx = 0;
+    var i = 0;
+    var ascending = true;
+    var counter = 0;
+
+    setInterval(terminalType, speed);
+    
+    function terminalType()
+    {
+      var tempTxt = splashes[spIdx];
+      if ((i < tempTxt.length) && ascending)
+      {
+        //console.log("Char to print: " + tempTxt.charAt(i));
+        document.getElementById("terminalType").innerHTML += tempTxt.charAt(i);
+        i++;
+      }
+      else if ((i == tempTxt.length) & ascending)
+      {
+        counter++;
+        //console.log("peak");
+        if (counter == peakCounts) 
+        { 
+          ascending = false;
+          counter = 0;
+        }
+      }
+      else if ((i >= 0) && !ascending)
+      {
+        //console.log("descent");
+        document.getElementById("terminalType").innerHTML = tempTxt.substring(0, i);
+        i--;
+      }
+      else
+      {
+        counter++;
+        //console.log("base");
+        if (counter == baseCounts) 
+        { 
+          spIdx++;
+          spIdx %= splashes.length;
+          i = 0;
+          ascending = true;
+          counter = 0;
+        }
+      }
+      
+
+    }
+
   </script>
 </head>
 
@@ -43,24 +118,25 @@
 
     <div class="header">
       <ul>
-        <li style="float: left; position: fixed; font-family: 'Josefin Sans';">MH</li>
+        <li style="float: left; position: fixed; font-family: 'Josefin Sans';"><a onclick="scrollTop()">MH</a></li>
+        <li><a href="./about.html">About</a></li>
         <li><a onclick="scrollPortfolio()">Portfolio</a></li>
         <li><a onclick="scrollSkills()">Skills</a></li>
       </ul>
     </div>
 
     <div id="splash">
-      <h1 style="color: rgba(255, 255, 255, 0.618);">
-        Hello, </br>
-        I'm <span style="color: white">Maia Herrington</span>, </br>
-        a computer engineering </br>
-        student working </br>
-        in the <span style="color: white">space industry</span> </br>
+      <h2 style="font-size: 6vh; opacity: 0.5;">Hello, my name is</h2>
+      <h1 style="font-size: 10vh;">Maia Herrington.</h1>
+      <h1 style="font-size: 9vh; opacity: 0.6;">
+        I like to<span id="terminalType"></span>
+        <div class="terminalBlink"></div>
       </h1>
-      <h3 style="padding-top: 3vh">
-        Welcome to my website, I'm excited to show you around. </br>
-        Start by scrolling down!
-      </h3>
+      <p style="padding-top: 5vh; font-size: 3vh; line-height: 4vh;">
+        I'm a computer engineer working in the space industry.</br>
+        In January, I'm joining <a href="https://www.stokespace.com/">Stoke Space</a> as an Embedded Software Engineer. </br>
+        Keep scrolling to learn more about the other work I've done!
+      </p>
     </div>
 
     <div id="skills">
@@ -77,7 +153,7 @@
       <div class="skill">
         <img src="./images/icon_multimeter.svg" class="skillIcon">
         <h2 class="skillText">Lab Tools</h2>
-        <p>Has used multimeter, oscilloscope, signal analyzer, and more.</p>
+        <p>I've used multimeter, oscilloscope, signal analyzer, and more.</p>
       </div>
 
       <div class="skill">
@@ -95,25 +171,152 @@
       <div class="skill">
         <img src="./images/icon_teamwork.svg" class="skillIcon">
         <h2 class="skillText">Teamwork</h2>
-        <p>Loves working with collabortive and innovative teams.</p>
+        <p>I love working with and learning from those around me.</p>
       </div>
 
     </div>
 
     <div id="portfolio">
-      <h1 style="text-align: center;">
-        Portfolio
-      </h1>
-  </div>
+      <div class="projectSectionTitle">
+        <h1>Portfolio</h1>
+      </div>
+      <div class="projCol">
+        <div class="projItem" onclick=modalFadeIn('p1-modal')>
+          <h2>Sodium CubeSat Radio</h2>
+          <p>Michigan eXploration Laboratory</p>
+        </div>
+        <div class="projItem" onclick=modalFadeIn('p3-modal')>
+          <h2>Maize Toss: RFID Cornhole</h2>
+          <p>EECS 473 Final Project</p>
+        </div>
+        <div class="projItem" onclick=modalFadeIn('p5-modal')>
+          <h2>Automatic Cruise Controller</h2>
+          <p>EECS 461 Final Project</p>
+        </div>
+      </div>
+      <div class="projCol">
+        <div class="projItem" onclick=modalFadeIn('p2-modal')>
+          <h2>MARIO CubeSat</h2>
+          <p>Michigan eXploration Laboratory</p>
+        </div>
+        <div class="projItem" onclick=modalFadeIn('p4-modal')>
+          <h2>NASA Celestial Mapping System</h2>
+          <p>NASA Ames Research Center</p>
+        </div>
+        <div class="projItem" onclick=modalFadeIn('p6-modal')>
+          <h2>Assembler/Linker/Pipeline</h2>
+          <p>EECS 370 Course Projects</p>
+        </div>
+      </div>
+    </div>
 
+    <div id="p1-modal" class="modal">
+      <div class="modal-content">
+          <image onclick=modalFadeOut('p1-modal') class="modal-x" src="./images/icon-x.svg">
+          <h2 style="padding-bottom:0vh;">Sodium CubeSat Radio</h2>
+          <p style="text-align:center; padding-bottom:2vh;">January 2023 - December 2023</p>
+          <p>Sodium is an open source CubeSat radio I worked on during my final year in 
+          Michigan eXploration Laboratory. After many difficulties using the lab's expensive, 
+          off-the-shelf radios, we wanted to bring the firmware and designs back into the lab 
+          to improve our communications infrastructure.</p></br>
+          <p>My role was to develop schematics and PCB layout while another teammate conducted
+          chip trade studies for this design. The PCB was manufactured and assembled by JLCPCB,
+          with some rework by our team. Finally, I performed testing and characterization for
+          this PCB while writing firmware for it.</p></br>
+          <p style="text-align: center;">Check back for info on its public release in 2024!</p>
+          <p style="text-align: center;"><s>Learn more →</s></p>
+      </div>
+    </div>
+    <div id="p2-modal" class="modal">
+      <div class="modal-content">
+          <image onclick=modalFadeOut('p2-modal') class="modal-x" src="./images/icon-x.svg">
+          <h2 style="padding-bottom:0vh;">MARIO CubeSat</h2>
+          <p style="text-align:center; padding-bottom:2vh;">September 2020 - May 2023</p>
+          <p>MARIO was a 3U CubeSat designed to test piezoelectic actuators on orbit. The
+          goal of the mission was to characterize how the performance of these actuators
+          changes after being in space for different lengths of time.</p></br>
+          <p>I joined this project quite late in its development, so my role consisted of 
+          performing electrical and software checkouts, then debugging any issues that arose. 
+          Eventually, I also took on the role of leading the integration and testing process.
+          After MARIO deployed to low earth orbit in December 2022, I operated it from MXL
+          and SATNOGS ground stations until it deorbited in May 2023.</p></br>
+          <p style="text-align: center;"><a target=”_blank” href="https://www.cnet.com/science/space/tiny-satellite-called-mario-couldnt-be-more-mario-if-it-tried/">See us in the news! →</a></p>
+          <p style="text-align: center;"><a target=”_blank” href="https://exploration.engin.umich.edu/mario-launched-deployed-and-operational/">Learn more →</a></p>
+      </div>
+    </div>
+    <div id="p3-modal" class="modal">
+      <div class="modal-content">
+          <image onclick=modalFadeOut('p3-modal') class="modal-x" src="./images/icon-x.svg">
+          <h2 style="padding-bottom:0vh;">Maize Toss: RFID-Enabled Cornhole Scoring</h2>
+          <p style="text-align:center; padding-bottom:2vh;">September 2023 - December 2023</p>
+          <p>Maize Toss was an automated cornhole scoring system developed for my senior design
+          course at the University of Michigan, EECS 473. It uses an RFID reader connected to
+          an antenna array underneath the cornhole board to detect beanbags that land on the board.
+          Beanbags are outfitted with RFID tags to enable this detection.</p></br>
+          <p>My role was to develop drivers for the RFID chip our team used, the ST29R95. ST offers
+            drivers for this chip, however, they did not work with our other software libraries, which
+            is why we developed our own. I adapted an existing ISO14443A-based driver to implement
+            ISO15693 functions for our project, including an anti-collision algorithm. Additionally,
+            I helped design and test the antenna design. I also manufactured our beanbags.</p></br>
+          <p style="text-align: center;"><a target=”_blank” href="https://github.com/Maize-Toss">Learn more →</a></p>
+      </div>
+    </div>
+    <div id="p4-modal" class="modal">
+      <div class="modal-content">
+          <image onclick=modalFadeOut('p4-modal') class="modal-x" src="./images/icon-x.svg">
+          <h2 style="padding-bottom:0vh;">Celestial Mapping System @ NASA Ames</h2>
+          <p style="text-align:center; padding-bottom:2vh;">August 2021 - December 2021</p>
+          <p>Sodium is an open source CubeSat radio I worked on during my final year in 
+          Michigan eXploration Laboratory. After many difficulties using the lab's expensive, 
+          off-the-shelf radios, we wanted to bring the firmware and designs back into the lab 
+          to improve our communications infrastructure.</p></br>
+          <p>My role was to develop schematics and PCB layout while another teammate conducted
+          chip trade studies for this design. The PCB was manufactured and assembled by JLCPCB,
+          with some rework by our team. Finally, I performed testing and characterization for
+          this PCB while writing firmware for it.</p></br>
+          <p style="text-align: center;"><a target=”_blank” href="https://celestialmappingsystem.arc.nasa.gov/">Learn more →</a></p>
+      </div>
+    </div>
+    <div id="p5-modal" class="modal">
+      <div class="modal-content">
+          <image onclick=modalFadeOut('p5-modal') class="modal-x" src="./images/icon-x.svg">
+          <h2 style="padding-bottom:0vh;">Adaptive Cruise Control & Lane Keeping</h2>
+          <p style="text-align:center; padding-bottom:2vh;">January 2022 - April 2022</p>
+          <p>EECS 461, an embedded systems controls course at the University of Michigan,
+            required all students to create the same final project: a MATLAB/Simulink model
+            of a car with automated lanekeeping and adaptive cruise control.
+      </div>
+    </div>
+    <div id="p6-modal" class="modal">
+      <div class="modal-content">
+          <image onclick=modalFadeOut('p6-modal') class="modal-x" src="./images/icon-x.svg">
+          <h2 style="padding-bottom:0vh;">Assembler, Linker, Pipeline, and Cache Simulator</h2>
+          <p style="text-align:center; padding-bottom:2vh;">January 2022 - April 2022</p>
+          <p>EECS 370, an introductory computer architecture course at the University of Michigan,
+            required all students to complete four projects:
+            simulators for assembling files, linking files, pipelining assembly instructions, and
+            cache interactions.
+          </p></br>
+      </div>
+    </div>
 
     <div class="footer">
-      <img src="./images/astronaut.png" style="height: 12vh">
-      <img src="./images/icon_mail.svg">
-      <img src="./images/icon_linkedin.svg">
-      <img src="./images/icon_github.svg">
-      <div class="copyright">&copy Maia Herrington 2022</div>
-      <div class="attributions"></div>
+      <img src="./images/astronaut.png" class="astroIcon">
+      <div class="footerIcons">
+        <img src="./images/icon_linkedin.svg" class="footerIcon" style="padding-left: 6.5vw;">
+        <img src="./images/icon_github.svg" class="footerIcon">
+        <img src="./images/icon_mail.svg" class="footerIcon">
+      </div>
+      <div class="copyright"><p>&copy Maia Herrington 2023</p></div>
+      <div class="attriButton"  onclick=modalFadeIn('attribution-modal')><p>Attributions</p></div>
+    </div>
+
+    <div id="attribution-modal" class="modal">
+      <div class="modal-content">
+          <image onclick=modalFadeOut('attribution-modal') class="modal-x" src="./images/icon-x.svg">
+          <h2> Attributions </h2>
+          <p>Special thanks to the following resources for making this website possible.</p>
+      </div>
     </div>
   
   </div>
