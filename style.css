@@ -406,6 +406,16 @@ a
       font-style: oblique;
       transition: 0.25s;
     }
+
+    li
+    {
+      font-size: 2.5vh;
+      font-style: none;
+      line-height: 3.5vh;
+      font-family: 'Hind Guntur', sans-serif;
+      color:rgba(19, 33, 60, 0.5);
+      opacity: 0.7;
+    }
   }
 
   .modal-x
